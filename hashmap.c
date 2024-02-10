@@ -44,6 +44,14 @@ HashTable *createHashTable(int size) {
   return table;
 }
 
+void printHashTable(HashTable *table) {
+  for (int i = 0; i < table->size; i++) {
+    Item *item = table->items[i];
+    if (item != NULL)
+      printf("Index = %d, Key = %s, Value = %d\n", i, item->key, item->value);
+  }
+}
+
 void freeItem(Item *item) {
   free(item->key);
   free(item);
@@ -74,4 +82,20 @@ void insert(HashTable *table, const char *key, int value) {
 
 int main() { 
 
-  return 0; }
+  // Create a new hash table
+  // Insert some values
+  // Print the hash table
+  // Free the hash table
+  
+  HashTable *table = createHashTable(SIZE);
+
+  insert(table, "a", 1);
+  insert(table, "b", 2);
+  insert(table, "c", 3);
+
+  printHashTable(table);
+
+  freeHashTable(table);
+
+  return 0; 
+}
