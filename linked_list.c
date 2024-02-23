@@ -36,4 +36,24 @@ void pushBack(Node *head, Node *new_node) {
 
 void addEnd(Node *head, double value) { pushBack(head, createNode(value)); }
 
-int main() { return 0; }
+void print(Node* node) {
+  while(node->next != NULL) {
+    printf("%f ", node->value);
+    node = node->next;
+  }
+  printf("%f\n", node->value);
+}
+
+int main() { 
+  Node* head = createNode(1);
+
+  addEnd(head, 2);
+  addEnd(head, 3);
+  addEnd(head, 4);
+  addEnd(head, 5);
+  addEnd(head, 6);
+
+  print(head);
+
+  return 0; 
+}
